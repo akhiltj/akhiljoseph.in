@@ -19,12 +19,25 @@ function initCooper() {
 		  		Tabs 
 	  =======================================================================
 	*/
+    // $("ul.tabs li").on("click", function() {
+    //     var a = $(this).attr("data-tab"), b = $("ul.tabs li");
+    //     b.removeClass("current");
+    //     $(".tab-content").removeClass("current");
+    //     $(this).addClass("current");
+    //     $("#" + a).addClass("current");
+    //     return false;
+    // });
     $("ul.tabs li").on("click", function() {
-        var a = $(this).attr("data-tab"), b = $("ul.tabs li");
-        b.removeClass("current");
-        $(".tab-content").removeClass("current");
+        var tabId = $(this).attr("data-tab");
+        var tabsInSection = $(this).closest('.tabs').find('li');
+        var contentInSection = $(this).closest('.scroll-con-sec').find('.tab-content');
+    
+        tabsInSection.removeClass("current");
+        contentInSection.removeClass("current");
+    
         $(this).addClass("current");
-        $("#" + a).addClass("current");
+        $("#" + tabId).addClass("current");
+    
         return false;
     });
 	/*
