@@ -253,12 +253,40 @@ function initCooper() {
 		  		LightGallery
 	  =======================================================================
 	*/
-    $(".image-popup").lightGallery({
-        selector: "this",
-        cssEasing: "cubic-bezier(0.25, 0, 0.25, 1)",
-        download: false,
-        counter: false
-    });
+    // Image Popup
+$(".image-popup").lightGallery({
+    selector: "this",
+    cssEasing: "cubic-bezier(0.25, 0, 0.25, 1)",
+    download: false,
+    counter: false
+});
+
+// Video Popup
+$(".video-popup").on("click", function(event) {
+    event.preventDefault();
+    
+    var youtubeVideoId = getYoutubeVideoId($(this).attr("href"));
+    if (youtubeVideoId) {
+        var youtubeEmbedUrl = "https://www.youtube.com/embed/" + youtubeVideoId;
+        $("#video-player").attr("src", youtubeEmbedUrl);
+        $("#video-modal").css("display", "block");
+    }
+});
+
+// Function to extract YouTube video ID from URL
+function getYoutubeVideoId(url) {
+    var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/;
+    var match = url.match(regExp);
+    return (match && match[7].length === 11) ? match[7] : false;
+}
+
+// Close the video modal
+$(".modal .close").on("click", function() {
+    $("#video-player").attr("src", "");
+    $("#video-modal").css("display", "none");
+});
+ 
+
     var $lg = $(".lightgallery"), dlt = $lg.data("looped");
     $lg.lightGallery({
         selector: ".lightgallery a.popup-image , .lightgallery  a.popgal",
