@@ -1503,6 +1503,7 @@ section.dec-sec:after {
 	font-size:19px;
 	padding:20px 30px;
 	background:#404040;
+	cursor: pointer; /* Change cursor to pointer */
 }
 /*------ order ------------------------------------------------*/
 .order-wrap {
