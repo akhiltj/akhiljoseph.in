@@ -823,7 +823,7 @@
                                                         <li> Mechanical </li>
                                                         <li>Electronics </li>
                                                     </ul>
-                                                    <span class="price" id="view-details" data-url="musical-stairs.html">View Details</span>
+                                                    <span class="price view-details" data-url="projects.html">View Details</span>
                                                 </div>
                                             </div>
                                             <h3>Gate Automation</h3>
@@ -997,11 +997,18 @@
                 element.addEventListener('click', function() {
                     // Get the URL from the data-url attribute of the clicked element
                     var url = element.getAttribute('data-url');
-                    // Redirect to the URL obtained from the clicked element
+                    // Check if URL is not provided
+                    if (!url) {
+                        // Provide a default URL here
+                        url = 'projects.html';
+                    }
+                    // Redirect to the URL obtained from the clicked element or the default URL
                     window.location.href = url;
                 });
             });
         </script>
+        
+        
     </body>
 
 <!-- Mirrored from cooper.kwst.net/site/index4.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 10 Mar 2024 09:54:37 GMT -->
